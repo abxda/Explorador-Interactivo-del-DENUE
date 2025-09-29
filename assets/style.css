@@ -1,0 +1,70 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    font-size: 14px;
+    overflow: hidden; /* Evita barras de scroll en el cuerpo de la página */
+}
+
+#main-layout {
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 15px;
+    display: grid;
+    /* Mantenemos la proporción 1/3 y 2/3 */
+    grid-template-columns: 1fr 2fr;
+    /* Hacemos la definición de la fila más robusta para evitar desbordes */
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: "left-column map";
+    gap: 15px;
+}
+
+#left-column {
+    grid-area: left-column;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    /* LA CORRECCIÓN CLAVE: Evita que la columna colapse a un ancho cero */
+    min-width: 400px;
+}
+
+.div-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+#main-map-card {
+    grid-area: map;
+    padding: 0;
+    overflow: hidden;
+}
+
+.control-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.scian-filters,
+.per-ocu-filter {
+    flex: 1;
+    min-width: 150px;
+}
+
+.scian-filters > div {
+    margin-bottom: 8px;
+}
